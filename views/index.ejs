@@ -7,5 +7,26 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <!--<div id="divRest"></div>-->
+    <button id="btnRest">Get Listings</button>
+    <h2 id="h2Name"></h2>
+    <div id="address"></div>
+    <div id="city"></div>
+    <div id="zip"></div>
+    <h3 id="h3grades"></h3>
+    <div id="divRest"></div>
+
+    <form action="script.js">
+      <label for="numListings">Listings per page</label>
+      <select name="numListings" id="numlistings">
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+    </form>
+
+
+    <script src="/javascripts/script.js"></script>
   </body>
 </html>
