@@ -6,20 +6,42 @@
 
 const divRest = document.querySelector("#divRest")
 const btnRest = document.querySelector("#btnRest")
-const h2Name = document.querySelector('#h2Name')
+const h2Name = document.querySelector("#h2Name")
 const address = document.querySelector("#address")
 const city = document.querySelector("#city")
 const zip = document.querySelector("#zip")
 const h3grades = document.querySelector("#h3grades")
 
+const prevBtn = document.querySelector("prevBtn")
+const nextBtn = document.querySelector("nextBtn")
 
+let pageNumber = 0;
 
-btnRest.onclick = ()=>{
-    fetch("restaurant?pageSize=numListings")
+prevBtn.onclick = ()=>{
+    if (pageNumber > 2)
+        pageNumber--;
+    fetch("restaurant?pageSize=numListings?pageNumber=pageNumber")
         .then(response => response.json())
         .then(data => render(data))
         .catch(error=>alert(error))
 }
+
+nextBtn.onclick = ()=>{
+    pageNumber++;
+    fetch("restaurant?pageSize=numListings?pageNumber=pageNumber")
+        .then(response => response.json())
+        .then(data => render(data))
+        .catch(error=>alert(error))
+}
+
+
+btnRest.onclick = ()=>{
+    fetch("restaurant?pageSize=numListings?pageNumber=pageNumber")
+        .then(response => response.json())
+        .then(data => render(data))
+        .catch(error=>alert(error))
+}
+
 
 function render(data)
 {
